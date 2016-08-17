@@ -3,7 +3,7 @@ This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.i
 
 ## Proposed Technology Stack
   - Language: Python 3.5
-  - Datastore: SQLite
+  - Datastore: MySQl
   - Framework: [Django-Rest](http://www.django-rest-framework.org/)
   - [VirtualEnv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 
