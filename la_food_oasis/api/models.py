@@ -2,8 +2,7 @@ from django.db import models
 
 
 class Location(models.Model):
-    LOCATION_CATEGORIES = ('Community Garden', "Farmer's Market",
-                      'Food Bank', 'Grocery Store')
+    LOCATION_CATEGORIES = (('CG','Community Garden'), ('FM',"Farmer's Market"),('FB','Food Bank'),('GS','Grocery Store'))
 
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=80, blank=False)
@@ -15,7 +14,7 @@ class Location(models.Model):
     phone = models.CharField(max_length=20, blank=False)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
-    category = models.CharField(choices=LOCATION_CATEGORIES, blank=False)
+    category = models.CharField(choices=LOCATION_CATEGORIES, blank=False, max_length=50)
 
     class Meta:
         ordering = ('created', )
