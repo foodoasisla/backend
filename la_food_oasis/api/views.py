@@ -6,9 +6,10 @@ from rest_framework.parsers import JSONParser
 from api.models import Location
 from api.serializers import LocationSerializer
 
+
 class JSONResponse(HttpResponse):
 
-    def __init__(self, data **kwargs):
+    def __init__(self, data ** kwargs):
         content = JSONRenderer().render(data)
         kwargs['content_type'] = 'application/json'
         super(JSONResponse, self).__init(content, **kwargs)
@@ -30,3 +31,23 @@ class JSONResponse(HttpResponse):
 
     @csrf_exempt
     def location_detail(request, pk):
+        try:
+            location = Location.objects.get(pk=pk)
+        except Location.DoesNotExist:
+            return HttpResponse(status=404)
+
+        if request.method == 'GET':
+            serializer = LocationSerializer(location)
+            return JSONResponse(serializer.data)
+
+        elif request.method == 'PUT':
+            data = JSONParser().parse(request)
+            serializer = LocationSerializer(location, data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return  JSONResponse(serializer.data)
+            return JSONResponse(serializer.errors, status=400)
+
+        elif request.method == 'DELETE':
+            location.delete()
+            return HttpResponse(status=204)
