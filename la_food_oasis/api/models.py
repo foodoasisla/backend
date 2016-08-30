@@ -11,7 +11,7 @@ class Location(models.Model):
     city = models.CharField(max_length=30, blank=False)
     state = models.CharField(max_length=2, blank=True, default='CA')
     zip = models.CharField(max_length=5, blank=False)
-    phone = models.CharField(max_length=20, blank=False)
+    phone = models.CharField(max_length=20, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     category = models.CharField(choices=LOCATION_CATEGORIES, blank=False, max_length=50)
