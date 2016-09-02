@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'la_food_oasis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'la_food_oasis',
+        'USER': 'la_food_oasis_user',
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'PORT':'3306',
+        'HOST': 'localhost'
     }
 }
 
