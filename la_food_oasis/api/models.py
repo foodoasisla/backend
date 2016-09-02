@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Location(models.Model):
-    LOCATION_CATEGORIES = (('CG','Community Garden'), ('FM',"Farmer's Market"),('FB','Food Bank'),('GS','Grocery Store'),('SM','Super Market'))
+    LOCATION_CATEGORIES = (('CG','Community Garden'), ('FM',"Farmer's Market"),('FB','Food Bank'),('GS','Grocery Store'),('SM','Super Market'), ('CV','Convenience Store'))
 
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=80, blank=False)
