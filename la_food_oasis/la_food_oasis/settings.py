@@ -77,11 +77,12 @@ WSGI_APPLICATION = 'la_food_oasis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'la_food_oasis',
         'USER': 'la_food_oasis_user',
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'PORT':'3306',
+        # 'PASSWORD': os.environ['DB_PASSWORD'],
+        'PASSWORD': '',
+        'PORT':'',
         'HOST': 'localhost'
     }
 }
