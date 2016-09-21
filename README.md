@@ -3,9 +3,10 @@ This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.i
 
 ## Proposed Technology Stack
   - Language: Python 3.5
-  - Datastore: MySQL
+  - Datastore: Postgres
   - Framework: [Django-Rest](http://www.django-rest-framework.org/)
   - [VirtualEnv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+  - Deployment: Heroku
 
 ## Architecture Notes
 The backend will serve a REST API that will initially consist of types and locations of fresh food within Los Angeles.
