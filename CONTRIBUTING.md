@@ -3,7 +3,7 @@
 ## Clone The Repo
 
 Open a terminal and go to where you want to keep the project on your local machine.
-Type this command. `git clone https://github.com/foodoasisla/backend.git`
+Type `git clone https://github.com/foodoasisla/backend.git`
 
 ## Virtualenvwrapper
 
@@ -42,7 +42,6 @@ Create a database
 
 Exit out of Postgres `\q`
 
-Make sure you are in your virtualenv and type `pip install psycopg2`
 
 ##Install Dependencies
 
@@ -50,4 +49,4 @@ Make sure you are in your virtualenv and type `pip install psycopg2`
 
 ##Migrate the Database
 
-`(myvenv)~/backend/la_food_oasis python manage.py migrate1
+`(myvenv)~/backend/la_food_oasis python manage.py migrate
