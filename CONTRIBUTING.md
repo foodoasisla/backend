@@ -50,3 +50,8 @@ Exit out of Postgres `\q`
 ##Migrate the Database
 
 `(myvenv)~/backend/la_food_oasis python manage.py migrate
+
+##Populating data
+
+drop into the django shell `python manage.py shell`
+and run the following from within the shell `execfile('csv_ingest.py')
