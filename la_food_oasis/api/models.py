@@ -14,7 +14,7 @@ class Location(models.Model):
     phone = models.CharField(max_length=20, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
-    category = models.CharField(choices=LOCATION_CATEGORIES, blank=True, default='GS', max_length=50)
+    category = models.CharField(choices=LOCATION_CATEGORIES, blank=False, max_length=50)
     website = models.CharField(max_length=60, blank=True, default=''  )
     active = models.BooleanField(default=True)
 
