@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Location
+from api.models import Location, Hour
 
 
 class LocationSerializer(serializers.ModelSerializer):
@@ -23,7 +23,25 @@ class LocationSerializer(serializers.ModelSerializer):
         instance.zip = validated_data.get('zipcode', instance.zip)
         instance.phone = validated_data.get('phone', instance.phone)
         instance.latitude = validated_data.get('latitude', instance.latitude)
-        instance.longitude = validated_data.get('longitude', instance.longitude)
+        instance.longitude = validated_data.get(
+            'longitude', instance.longitude)
         instance.category = validated_data.get('category', instance.category)
         instance.save()
         return instance
+
+
+class HourSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Hour
+        fields = ('day', 'open_time', 'close_time')
+
+    def create(self, validated_data):
+        return Hour.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.day = validated_data.get('day', instance.day)
+        instance.open_time = validated_data.get(
+            'open_time', instance.open_time)
+        instance.close_time = validated_data.get(
+            'close_time', instance.close_time)
