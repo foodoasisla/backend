@@ -35,10 +35,10 @@ If you get an error saying `psql: FATAL:  database "<user>" does not exist` do t
     psql -h localhost
 
 Create a user
-    CREATE USER la_food_oasis_user;
+    `CREATE USER la_food_oasis_user;`
 
 Create a database
-    CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;
+    `CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;`
 
 Exit out of Postgres `\q`
 
@@ -47,7 +47,7 @@ Install Postgress from [here](http://www.enterprisedb.com/products-services-trai
 
 It may prompt you to create a password for superuser 'postgres'.
 
-Set up your system PATH environment variables by adding file paths to bin and lib folders in the installed application folder, separated by semicolons. The paths may look like this: 
+Set up your system PATH environment variables by adding file paths to bin and lib folders in the installed application folder, separated by semicolons. The paths may look like this: </br>
 `C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib`
 
 In the command line, test Postgres `psql --version`.
@@ -55,10 +55,10 @@ In the command line, test Postgres `psql --version`.
 Get into postgres through the superuser account 'postgres' `psql -U postgres` and enter the password you set up on the install.
 
 Create a user
-    CREATE USER la_food_oasis_user;
+    `CREATE USER la_food_oasis_user;`
 
 Create a database
-    CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;
+    `CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;`
 
 Exit out of Postgres `\q`
 
