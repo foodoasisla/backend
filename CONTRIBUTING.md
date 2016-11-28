@@ -67,12 +67,12 @@ Exit out of Postgres `\q`
 
 ##Install Dependencies - Mac
 
-Navigate to the first backend folder, with the requirements.txt file.
+Navigate in the terminal to the first backend folder, with the requirements.txt file. Enter: </br>
 `(myvenv)~/backend pip install -r requirements`
 
 ##Install Dependencies - Windows
 
-Navigate to the first backend folder, with the requirements.txt file.
+Navigate in the command line to the first backend folder, with the requirements.txt file. Enter: </br>
 `(myvenv)~/backend pip install -r requirements.txt`
 
 ##Migrate the Database
