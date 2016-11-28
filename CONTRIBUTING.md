@@ -48,7 +48,7 @@ Install Postgress from [here](http://www.enterprisedb.com/products-services-trai
 It may prompt you to create a password for superuser 'postgres'.
 
 Set up your system PATH environment variables by adding file paths to bin and lib folders in the installed application folder, separated by semicolons. The paths may look like this: </br>
-`C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib`
+`;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib`
 
 In the command line, test Postgres `psql --version`.
 
@@ -65,9 +65,15 @@ Exit out of Postgres `\q`
 (To enter postgres as la_food_oasis_user you must enter the db name in addition to the username: </br>
 `psql -U la_food_oasis_user la_food_oasis`)
 
-##Install Dependencies
+##Install Dependencies - Mac
 
+Navigate to the first backend folder, with the requirements.txt file.
 `(myvenv)~/backend pip install -r requirements`
+
+##Install Dependencies - Windows
+
+Navigate to the first backend folder, with the requirements.txt file.
+`(myvenv)~/backend pip install -r requirements.txt`
 
 ##Migrate the Database
 
