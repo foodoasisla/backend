@@ -77,7 +77,7 @@ Navigate in the command line to the first backend folder, with the requirements.
 
 ##Migrate the Database
 
-`(myvenv)~/backend/la_food_oasis python manage.py migrate`
+`(myvenv)~/backend python manage.py migrate`
 
 ##Populating data
 
