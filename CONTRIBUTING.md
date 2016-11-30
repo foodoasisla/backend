@@ -35,7 +35,7 @@ If you get an error saying `psql: FATAL:  database "<user>" does not exist` do t
     psql -h localhost
 
 Create a user
-    `CREATE USER la_food_oasis_user with password '[create password]';`
+    `CREATE USER la_food_oasis_user;`
 
 Create a database
     `CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;`
@@ -55,7 +55,7 @@ In the command line, test Postgres `psql --version`.
 Get into postgres through the superuser account 'postgres' `psql -U postgres` and enter the password you set up on the install.
 
 Create a user
-    `CREATE USER la_food_oasis_user;`
+    `CREATE USER la_food_oasis_user with password '[create password]';`
 
 Create a database
     `CREATE DATABASE la_food_oasis OWNER la_food_oasis_user;`
