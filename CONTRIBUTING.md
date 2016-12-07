@@ -83,3 +83,15 @@ Navigate in the command line to the first backend folder, with the requirements.
 
 drop into the django shell `python manage.py shell`
 and run the following from within the shell `execfile('csv_ingest.py')
+
+## Start the Server
+
+```
+(myvenv) ~/backend python manage.py runserver
+```
+
+Try out an endpoint:
+
+```
+curl -v localhost:8000/locations/
+```

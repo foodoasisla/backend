@@ -2,8 +2,9 @@ from django.db import models
 
 
 class Location(models.Model):
-    LOCATION_CATEGORIES = (('CG', 'Community Garden'), ('FM', "Farmer's Market"), (
-        'FB', 'Food Bank'), ('GS', 'Grocery Store'), ('SM', 'Super Market'), ('OS', 'Other Stores'))
+    LOCATION_CATEGORIES = (('CG', 'Community Garden'), ('FM', "Farmer's Market"),
+                           ('FB', 'Food Bank'), ('GS', 'Grocery Store'),
+                           ('SM', 'Super Market'), ('OS', 'Other Stores'))
 
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=80, blank=False)
@@ -37,7 +38,7 @@ class Hour(models.Model):
             ('3rdSu', 'Third Sunday'), ('4thMo','Fourth Monday'), ('4thTu', 'Fourth Tuesday'),
             ('4thWe', 'Fourth Wednesday'), ('4thTh', 'Fourth Thursday'),
             ('4thFr','Fourth Friday'), ('4thSa', 'Fourth Saturday'),('4thSu', 'Fourth Sunday'),
-            ('LaMo', 'Last Monday'), ('LaTu', 'Last Tuesday'), ('LaWe', 'Last Wednesday'), ('LaTh', 'Last Thursday'), 
+            ('LaMo', 'Last Monday'), ('LaTu', 'Last Tuesday'), ('LaWe', 'Last Wednesday'), ('LaTh', 'Last Thursday'),
             ('LaFr', 'Last Friday'), ('LaSa', 'Last Saturday'), ('LaSu', 'Last Sunday'))
 
     day = models.CharField(choices=DAYS, blank=False, max_length=100)
