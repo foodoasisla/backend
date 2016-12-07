@@ -81,8 +81,23 @@ Navigate in the command line to the first backend folder, with the requirements.
 
 ##Populating data
 
-drop into the django shell `python manage.py shell`
-and run the following from within the shell `execfile('csv_ingest.py')
+### 1 - Download the CSV
+
+A sample CSV file of some of the location data is available [on google drive](https://drive.google.com/file/d/0B-rFXz0_Z5MMOE9ZNWxyaVh1UkE/view).
+
+Download it and move it to a directory called `csv_files` in your project directory.
+
+If you're on mac / linux this can be done as follows:
+
+```
+(myvenv)~/backend mkdir csv_files
+(myvenv)~/backend mv ~/Downloads/communitygardens.csv csv_files
+```
+
+### 2 - Run the Ingest Script
+
+Drop into the django shell `python manage.py shell`
+and run the following from within the shell `execfile('csv_ingest.py')`.
 
 ## Start the Server
 
