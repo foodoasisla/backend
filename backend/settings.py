@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'api.apps.ApiConfig'
+    'api.apps.ApiConfig',
+    'django_nose'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,11 @@ DATABASES = {
         # 'PASSWORD': os.environ['DB_PASSWORD'],
         'PASSWORD': '',
         'PORT':'',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'TEST': {
+            'NAME': 'la_food_oasis_test',
+            'USER': 'la_food_oasis_user'
+        }
     }
 }
 
@@ -133,3 +138,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = ['--nocapture']
