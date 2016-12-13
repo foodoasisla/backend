@@ -8,7 +8,6 @@ class TestViews(TestCase):
                  longitude=0).save()
 
         response = self.client.get('/locations')
-        # import IPython; IPython.embed()
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, len(response.json()))
         self.assertEqual('Test Community Garden',
