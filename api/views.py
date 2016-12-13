@@ -30,6 +30,23 @@ def location_list(request):
         return JSONResponse(serializer.errors, status=400)
 
 @csrf_exempt
+def nearby_locations(request):
+    if not request.method == 'GET':
+        return HttpResponse(status=404)
+
+    # Radius in meters
+    radius = request.GET.get('radius', 1000)
+    lat = request.GET.get('latitude')
+    lon = request.GET.get('longitude')
+
+    if not (lat and lon):
+        return HttpResponse(status=422)
+
+    query = Location.objects.in_distance(int(radius), fields=['latitude', 'longitude'],
+                                         points=[float(lat), float(lon)])
+    return JSONResponse(LocationSerializer(query.all(), many=True).data)
+
+@csrf_exempt
 def location_detail(request, pk):
     try:
         location = Location.objects.get(pk=pk)
