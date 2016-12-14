@@ -102,7 +102,9 @@ If you're on mac / linux this can be done as follows:
 ### 2 - Run the Ingest Script
 
 Drop into the django shell `python manage.py shell`
-and run the following from within the shell `execfile('csv_ingest.py')`.
+and run the following from within the shell `execfile('csv_ingest.py')`, or for python 3 and up: `exec(open("csv_ingest.py").read())`
+
+Exit with ctrl+z
 
 ## Start the Server
 
