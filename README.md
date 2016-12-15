@@ -2,7 +2,7 @@
 This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.io/).
 
 ## Proposed Technology Stack
-  - Language: Python 2.7
+  - Language: Python 3.5
   - Datastore: Postgres
   - Framework: [Django-Rest](http://www.django-rest-framework.org/)
   - [VirtualEnv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
