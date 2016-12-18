@@ -1,7 +1,10 @@
 from django.db import models
+from django_earthdistance.models import EarthDistanceQuerySet
 
 
 class Location(models.Model):
+    objects = EarthDistanceQuerySet.as_manager()
+
     LOCATION_CATEGORIES = (('CG', 'Community Garden'), ('FM', "Farmer's Market"),
                            ('FB', 'Food Bank'), ('GS', 'Grocery Store'),
                            ('SM', 'Super Market'), ('OS', 'Other Stores'))
