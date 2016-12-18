@@ -29,8 +29,8 @@ class Location(models.Model):
 
 
 class Hour(models.Model):
-    DAYS = (('Mo', 'Monday'), ('Tu', 'Tuesday'), ('We', 'Wednesday'), ('Th', 'Thursday'), ('Fr', 'Friday'),
-            ('Sa', 'Saturday'), ('Su', 'Sunday'),
+    DAYS = (('AllMo', 'Monday'), ('AllTu', 'Tuesday'), ('AllWe', 'Wednesday'), ('AllTh', 'Thursday'), ('AllFr', 'Friday'),
+            ('AllSa', 'Saturday'), ('AllSu', 'Sunday'),
             ('1stMo','First Monday'), ('1stTu', 'First Tuesday'),
             ('1stWe', 'First Wednesday'), ('1stTh','First Thursday'), ('1stFr', 'First Friday'),
             ('1stSa', 'First Saturday'), ('1stSu','First Sunday'), ('2ndMo', 'Second Monday'),
@@ -41,8 +41,8 @@ class Hour(models.Model):
             ('3rdSu', 'Third Sunday'), ('4thMo','Fourth Monday'), ('4thTu', 'Fourth Tuesday'),
             ('4thWe', 'Fourth Wednesday'), ('4thTh', 'Fourth Thursday'),
             ('4thFr','Fourth Friday'), ('4thSa', 'Fourth Saturday'),('4thSu', 'Fourth Sunday'),
-            ('LaMo', 'Last Monday'), ('LaTu', 'Last Tuesday'), ('LaWe', 'Last Wednesday'), ('LaTh', 'Last Thursday'),
-            ('LaFr', 'Last Friday'), ('LaSa', 'Last Saturday'), ('LaSu', 'Last Sunday'))
+            ('LstMo', 'Last Monday'), ('LstTu', 'Last Tuesday'), ('LstWe', 'Last Wednesday'), ('LstTh', 'Last Thursday'),
+            ('LstFr', 'Last Friday'), ('LstSa', 'Last Saturday'), ('LstSu', 'Last Sunday'))
 
     day = models.CharField(choices=DAYS, blank=False, max_length=100)
     open_time = models.TimeField(blank=False)
