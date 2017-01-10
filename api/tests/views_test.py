@@ -1,7 +1,9 @@
 from django.test import TestCase
 from api.models import Location
 
+
 class TestViews(TestCase):
+
     def test_fetches_index(self):
         Location(name='Test Community Garden',
                  latitude=0,
