@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -83,7 +84,7 @@ DATABASES = {
         'USER': 'la_food_oasis_user',
         # 'PASSWORD': os.environ['DB_PASSWORD'],
         'PASSWORD': '',
-        'PORT':'',
+        'PORT': '',
         'HOST': 'localhost',
         'TEST': {
             'NAME': 'la_food_oasis_test',
