@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
+import dj_database_url
+import psycopg2
+import urlparse
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -76,6 +78,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+
+conn = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
+
 
 DATABASES = {
     'default': {
@@ -142,3 +153,6 @@ STATICFILES_DIRS = (
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture']
+
+
+DATABASES['default'] = dj_database_url.config()
