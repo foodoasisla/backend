@@ -14,7 +14,7 @@ import os
 import dj_database_url
 import psycopg2
 import django_nose
-import urlparse
+import urllib.parse as urlparse
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
