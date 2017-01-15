@@ -2,7 +2,7 @@ test:
 	REUSE_DB=1 ./manage.py test
 
 setup:
-	# pip install -r requirements.txt
+	pip install -r requirements.txt
 	# pip install django-nose
 	psql -c 'DROP database IF EXISTS la_food_oasis;'
 	psql -c 'DROP database IF EXISTS la_food_oasis_test;'
