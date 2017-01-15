@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import dj_database_url
 import psycopg2
+import django_nose
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
