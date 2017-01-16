@@ -14,6 +14,8 @@ import os
 import dj_database_url
 import psycopg2
 import django_nose
+
+# urlparse library name was changed to urlib.parse for python 3.
 import urllib.parse as urlparse
 
 
@@ -97,26 +99,6 @@ DATABASES = {
     }
 }
 
-# Heroku DB Config - will attemp to connect to Heroku Db by checking
-# for presence of DATABASE_URL heroku environment variable.
-try:
-    urlparse.uses_netloc.append("postgres")
-    url = urlparse.urlparse(os.environ["DATABASE_URL"])
-
-    conn = psycopg2.connect(
-        database=url.path[1:],
-        user=url.username,
-        password=url.password,
-        host=url.hostname,
-        port=url.port
-    )
-
-    DATABASES['default'] = dj_database_url.config()
-
-except KeyError:
-    # Use local DB config.
-    DATABASES
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -166,3 +148,23 @@ STATICFILES_DIRS = (
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture']
+
+# Heroku DB Config - will attemp to connect to Heroku Db by checking
+# for presence of DATABASE_URL heroku environment variable.
+try:
+    urlparse.uses_netloc.append("postgres")
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
+
+    conn = psycopg2.connect(
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        host=url.hostname,
+        port=url.port
+    )
+
+    DATABASES['default'] = dj_database_url.config()
+
+# If DATABASE_URL is missing, use local db config.
+except KeyError:
+    DATABASES
