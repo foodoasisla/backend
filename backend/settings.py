@@ -81,35 +81,38 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
+# Heroku DB Config - will attemp to connect to Heroku Db
 
-conn = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
-)
+try:
+    urlparse.uses_netloc.append("postgres")
+    url = urlparse.urlparse(os.environ["DATABASE_URL"])
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'la_food_oasis',
-        'USER': 'la_food_oasis_user',
-        # 'PASSWORD': os.environ['DB_PASSWORD'],
-        'PASSWORD': '',
-        'PORT': '',
-        'HOST': 'localhost',
-        'TEST': {
-            'NAME': 'la_food_oasis_test',
-            'USER': 'la_food_oasis_user'
+    conn = psycopg2.connect(
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        host=url.hostname,
+        port=url.port
+    )
+    DATABASES['default'] = dj_database_url.config()
+except KeyError:
+    # Local DB config
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'la_food_oasis',
+            'USER': 'la_food_oasis_user',
+            # 'PASSWORD': os.environ['DB_PASSWORD'],
+            'PASSWORD': '',
+            'PORT': '',
+            'HOST': 'localhost',
+            'TEST': {
+                'NAME': 'la_food_oasis_test',
+                'USER': 'la_food_oasis_user'
+            }
         }
     }
-}
 
-DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
