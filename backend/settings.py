@@ -94,26 +94,40 @@ try:
         host=url.hostname,
         port=url.port
     )
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'la_food_oasis',
+            'USER': 'la_food_oasis_user',
+            # 'PASSWORD': os.environ['DB_PASSWORD'],
+            'PASSWORD': '',
+            'PORT': '',
+            'HOST': 'localhost',
+            'TEST': {
+                'NAME': 'la_food_oasis_test',
+                'USER': 'la_food_oasis_user'
+            }
+        }
+    }
+
     DATABASES['default'] = dj_database_url.config()
 except KeyError:
     # Local DB config
-    DATABASES = DATABASES
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'la_food_oasis',
-        'USER': 'la_food_oasis_user',
-        # 'PASSWORD': os.environ['DB_PASSWORD'],
-        'PASSWORD': '',
-        'PORT': '',
-        'HOST': 'localhost',
-        'TEST': {
-            'NAME': 'la_food_oasis_test',
-            'USER': 'la_food_oasis_user'
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'la_food_oasis',
+            'USER': 'la_food_oasis_user',
+            # 'PASSWORD': os.environ['DB_PASSWORD'],
+            'PASSWORD': '',
+            'PORT': '',
+            'HOST': 'localhost',
+            'TEST': {
+                'NAME': 'la_food_oasis_test',
+                'USER': 'la_food_oasis_user'
+            }
         }
     }
-}
 
 
 # Password validation
