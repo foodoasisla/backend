@@ -81,7 +81,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# Heroku DB Config - will attemp to connect to Heroku Db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -98,6 +97,8 @@ DATABASES = {
     }
 }
 
+# Heroku DB Config - will attemp to connect to Heroku Db by checking
+# for presence of DATABASE_URL heroku environment variable.
 try:
     urlparse.uses_netloc.append("postgres")
     url = urlparse.urlparse(os.environ["DATABASE_URL"])
@@ -111,24 +112,10 @@ try:
     )
 
     DATABASES['default'] = dj_database_url.config()
+
 except KeyError:
-    # Local DB config
+    # Use local DB config.
     DATABASES
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': 'la_food_oasis',
-    #         'USER': 'la_food_oasis_user',
-    #         # 'PASSWORD': os.environ['DB_PASSWORD'],
-    #         'PASSWORD': '',
-    #         'PORT': '',
-    #         'HOST': 'localhost',
-    #         'TEST': {
-    #             'NAME': 'la_food_oasis_test',
-    #             'USER': 'la_food_oasis_user'
-    #         }
-    #     }
-    # }
 
 
 # Password validation
