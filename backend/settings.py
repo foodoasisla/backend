@@ -151,6 +151,8 @@ NOSE_ARGS = ['--nocapture']
 
 # Heroku DB Config - will attemp to connect to Heroku db by checking
 # for presence of DATABASE_URL heroku environment variable.
+
+
 try:
     urlparse.uses_netloc.append("postgres")
     url = urlparse.urlparse(os.environ["DATABASE_URL"])
