@@ -149,7 +149,7 @@ STATICFILES_DIRS = (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture']
 
-# Heroku DB Config - will attemp to connect to Heroku Db by checking
+# Heroku DB Config - will attemp to connect to Heroku db by checking
 # for presence of DATABASE_URL heroku environment variable.
 try:
     urlparse.uses_netloc.append("postgres")
