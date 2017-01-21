@@ -1,7 +1,6 @@
 from django.db import models
 from django_earthdistance.models import EarthDistanceQuerySet
 
-
 class Location(models.Model):
     objects = EarthDistanceQuerySet.as_manager()
 
@@ -44,6 +43,7 @@ class Hour(models.Model):
             ('LstMo', 'Last Monday'), ('LstTu', 'Last Tuesday'), ('LstWe', 'Last Wednesday'), ('LstTh', 'Last Thursday'),
             ('LstFr', 'Last Friday'), ('LstSa', 'Last Saturday'), ('LstSu', 'Last Sunday'))
 
+    location = models.ForeignKey(Location, related_name='hours', on_delete=models.CASCADE)
     day = models.CharField(choices=DAYS, blank=False, max_length=100)
     open_time = models.TimeField(blank=False)
     close_time = models.TimeField(blank=False)
