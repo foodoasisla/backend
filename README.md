@@ -14,8 +14,7 @@ Quickstart
 1) Install Postgres and start server.
 2) Clone app `git clone https://github.com/foodoasisla/backend.git`
 3) Create and activate virtualenv in /backend.
-4) Install dependencies `pip install -r requirements.txt`
-5) Run Makefile `./Makefile`. (you may need to make the file executable `chmod +x Makefile`)
+4) `make setup`
 
 ## Architecture Notes
 The backend will serve a REST API that will initially consist of types and locations of fresh food within Los Angeles.
