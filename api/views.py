@@ -7,12 +7,14 @@ from api.models import Hour
 from api.serializers import LocationSerializer
 from api.serializers import HourSerializer
 
+
 class LocationList(generics.ListCreateAPIView):
     serializer_class = LocationSerializer
 
     def get_queryset(self):
         queryset = Location.objects.all()
         return queryset
+
 
 class NearbyLocationList(generics.ListCreateAPIView):
     serializer_class = LocationSerializer
@@ -27,7 +29,7 @@ class NearbyLocationList(generics.ListCreateAPIView):
             return Response(serializer.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
         queryset = Location.objects.in_distance(int(radius), fields=['latitude', 'longitude'],
-                                         points=[float(lat), float(lon)])
+                                                points=[float(lat), float(lon)])
 
         return queryset
 
@@ -36,11 +38,22 @@ class LocationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
 
+
+class CommunityGardenLocationList(generics.ListCreateAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.filter(category='Community Garden')
+
+
+class GroceryStoreLocationList(generics.ListCreateAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.filter(category='Grocery Store')
+
+
 class HourList(generics.ListCreateAPIView):
     queryset = Hour.objects.all()
     serializer_class = HourSerializer
 
+
 class HourDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Hour.objects.all()
     serializer_class = HourSerializer
-
