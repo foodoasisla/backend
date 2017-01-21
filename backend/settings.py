@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api.apps.ApiConfig',
-    'django_nose'
+    'django_nose',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'USER': 'la_food_oasis_user',
         # 'PASSWORD': os.environ['DB_PASSWORD'],
         'PASSWORD': '',
-        'PORT':'',
+        'PORT': '',
         'HOST': 'localhost',
         'TEST': {
             'NAME': 'la_food_oasis_test',
