@@ -90,7 +90,7 @@ Go to settings.py in the backend folder and go to line 84, where it says PASSWOR
 
 A sample CSV file of some of the location data is available [on google drive](https://drive.google.com/file/d/0B-rFXz0_Z5MMOE9ZNWxyaVh1UkE/view).
 
-Download it and move it to a directory called `csv_files` in your project directory.
+Download it and move it to a directory called `csv_files` in the commands folder of your project directory: (myvenv)C:/.../backend/api/management/commands
 
 If you're on mac / linux this can be done as follows:
 
@@ -101,10 +101,9 @@ If you're on mac / linux this can be done as follows:
 
 ### 2 - Run the Ingest Script
 
-Drop into the django shell `python manage.py shell`
-and run the following from within the shell `execfile('csv_ingest.py')`, or for python 3 and up: `exec(open("csv_ingest.py").read())`
+Navigate to the commands folder: (myvenv)C:/.../backend/api/management/commands
 
-Exit with ctrl+z
+Run the command: `python C:/.../backend/manage.py csv_ingest`
 
 ## Start the Server
 
