@@ -3,6 +3,7 @@ import csv
 from api.models import Location
 import os
 
+
 class Command(BaseCommand):
     help = 'Imports CSV file to populate local DB'
 
