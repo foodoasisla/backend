@@ -8,6 +8,9 @@ urlpatterns = [
     url(r'hours/$', views.HourList.as_view()),
     url(r'hours/(?P<pk>[0-9]+)/$', views.HourDetail.as_view()),
     url(r'^nearby_locations/?$', views.NearbyLocationList.as_view()),
+    url(r'locations/community_gardens/$',
+        views.CommunityGardenLocationList.as_view()),
+    url(r'locations/grocery_stores/$', views.GroceryStoreLocationList.as_view())
 ]
 
 

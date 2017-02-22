@@ -1,6 +1,7 @@
 from django.db import models
 from django_earthdistance.models import EarthDistanceQuerySet
 
+
 class Location(models.Model):
     objects = EarthDistanceQuerySet.as_manager()
 
@@ -20,7 +21,7 @@ class Location(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     category = models.CharField(
         choices=LOCATION_CATEGORIES, blank=False, max_length=50)
-    website = models.CharField(max_length=60, blank=True, default='')
+    website = models.URLField(max_length=200, blank=True, default='')
     active = models.BooleanField(default=True)
 
     class Meta:
@@ -30,20 +31,30 @@ class Location(models.Model):
 class Hour(models.Model):
     DAYS = (('AllMo', 'Monday'), ('AllTu', 'Tuesday'), ('AllWe', 'Wednesday'), ('AllTh', 'Thursday'), ('AllFr', 'Friday'),
             ('AllSa', 'Saturday'), ('AllSu', 'Sunday'),
-            ('1stMo','First Monday'), ('1stTu', 'First Tuesday'),
-            ('1stWe', 'First Wednesday'), ('1stTh','First Thursday'), ('1stFr', 'First Friday'),
-            ('1stSa', 'First Saturday'), ('1stSu','First Sunday'), ('2ndMo', 'Second Monday'),
-            ('2ndTu', 'Second Tuesday'), ('2ndWe','Second Wednesday'), ('2ndTh', 'Second Thursday'),
-            ('2ndFr', 'Second Friday'), ('2ndSa','Second Saturday'), ('2ndSu', 'Second Sunday'),
-            ('3rdMo', 'Third Monday'), ('3rdTu','Third Tuesday'), ('3rdWe', 'Third Wednesday'),
-            ('3rdTh', 'Third Thursday'), ('3rdFr','Third Friday'), ('3rdSa', 'Third Saturday'),
-            ('3rdSu', 'Third Sunday'), ('4thMo','Fourth Monday'), ('4thTu', 'Fourth Tuesday'),
+            ('1stMo', 'First Monday'), ('1stTu', 'First Tuesday'),
+            ('1stWe', 'First Wednesday'), ('1stTh',
+                                           'First Thursday'), ('1stFr', 'First Friday'),
+            ('1stSa', 'First Saturday'), ('1stSu',
+                                          'First Sunday'), ('2ndMo', 'Second Monday'),
+            ('2ndTu', 'Second Tuesday'), ('2ndWe',
+                                          'Second Wednesday'), ('2ndTh', 'Second Thursday'),
+            ('2ndFr', 'Second Friday'), ('2ndSa',
+                                         'Second Saturday'), ('2ndSu', 'Second Sunday'),
+            ('3rdMo', 'Third Monday'), ('3rdTu',
+                                        'Third Tuesday'), ('3rdWe', 'Third Wednesday'),
+            ('3rdTh', 'Third Thursday'), ('3rdFr',
+                                          'Third Friday'), ('3rdSa', 'Third Saturday'),
+            ('3rdSu', 'Third Sunday'), ('4thMo',
+                                        'Fourth Monday'), ('4thTu', 'Fourth Tuesday'),
             ('4thWe', 'Fourth Wednesday'), ('4thTh', 'Fourth Thursday'),
-            ('4thFr','Fourth Friday'), ('4thSa', 'Fourth Saturday'),('4thSu', 'Fourth Sunday'),
-            ('LstMo', 'Last Monday'), ('LstTu', 'Last Tuesday'), ('LstWe', 'Last Wednesday'), ('LstTh', 'Last Thursday'),
+            ('4thFr', 'Fourth Friday'), ('4thSa',
+                                         'Fourth Saturday'), ('4thSu', 'Fourth Sunday'),
+            ('LstMo', 'Last Monday'), ('LstTu', 'Last Tuesday'), ('LstWe',
+                                                                  'Last Wednesday'), ('LstTh', 'Last Thursday'),
             ('LstFr', 'Last Friday'), ('LstSa', 'Last Saturday'), ('LstSu', 'Last Sunday'))
 
-    location = models.ForeignKey(Location, related_name='hours', on_delete=models.CASCADE)
+    location = models.ForeignKey(
+        Location, related_name='hours', on_delete=models.CASCADE)
     day = models.CharField(choices=DAYS, blank=False, max_length=100)
     open_time = models.TimeField(blank=False)
     close_time = models.TimeField(blank=False)
