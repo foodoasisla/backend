@@ -7,7 +7,16 @@ import os
 
 
 class Command(BaseCommand):
-    help = 'is this thing on?'
+    help = 'in-process command for ingesting csv data with hours.'
 
     def handle(self, *args, **options):
-        print('is this thing on???')
+        for filename in os.listdir('hours_csv_TEST'):
+            print('importing CSV file {0}'.format(filename))
+            with open(os.path.join('hours_csv_TEST', filename), 'r') as f:
+                reader = csv.reader(f)
+                next(f)
+                for r in reader:
+                    print('populating row: {0}'.format(r))
+                    loc = Location(name=r[0], address_1=r[1], address_2=r[2], city=r[3], state=r[
+                                   4], zipcode=r[5], phone=r[6], latitude=r[7], longitude=r[7], category=r[8], website=r[9], active=True)
+                    print(loc)
