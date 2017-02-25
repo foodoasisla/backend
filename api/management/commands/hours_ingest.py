@@ -18,5 +18,5 @@ class Command(BaseCommand):
                 for r in reader:
                     print('populating row: {0}'.format(r))
                     loc = Location(name=r[0], address_1=r[1], address_2=r[2], city=r[3], state=r[
-                                   4], zipcode=r[5], phone=r[6], latitude=r[7], longitude=r[7], category=r[8], website=r[9], active=True)
-                    print(loc)
+                                   4], zipcode=r[5], phone=r[6], latitude=r[7], longitude=r[8], category=r[9], website=r[10], active=True)
+                    loc.save()
