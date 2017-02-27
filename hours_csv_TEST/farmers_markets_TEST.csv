@@ -1,11 +1,11 @@
-Name,address_1,address_2,City,State,Zip,Phone,latitude,longitude,Category,Website,daycode,open,close
-Acton Farmers Market,3801 Sierra Way,,Acton,CA,93510,,34.4927,-118.2004,Farmer’s Market,,AllWe,1:00,19:00
+Name,address_1,address_2,City,State,Zip,Phone,latitude,longitude,Category,Website,daycode,open,close,daycode,open,close
+Acton Farmers Market,3801 Sierra Way,,Acton,CA,93510,,34.4927,-118.2004,Farmer’s Market,,AllWe,1:00,19:00,AllSu,2:00,4:00
 "Adams - Vermont Farmers Market /
-St. Agnes Church Farmer's Market",1432 W Adams Blvd,,Los Angeles,CA,90007,213-454-8533,34.0326,-118.2926,Farmer’s Market,,AllWe,2:00,19:00
-Agoura Hills Farmers Market,5835 Kanan Rd,,Agoura Hills,CA,91310,818-591-8161,34.1569,-118.7572,Farmer’s Market,,AllWe,3:00,19:00
-Alhambra Certified Farmers Market,100 S. 2nd Street,,Alhambra,CA,91801,626-570-5081,34.0937,-118.1288,Farmer’s Market,http://www.cityofalhambra.org/page/289/certified_farmers_market/,AllSu,4:00,13:00
-Altadena Farmers Market,600 W. Palm Street,,Altadena,CA,91001,(310) 595-0272,34.2004,-118.1581,Farmer’s Market,http://altadenafarmersmarket.com/,AllWe,5:00,20:00
-Antelope Valley Winery Farmers Market,42041 20th St. West,,Lancaster,CA,93534,,34.647,-118.1662,Farmer’s Market,,AllSat,6:00,12:00
-Arcadia Street Fair Farmers Market,Wheeler Ave. @ 1st Street,,Arcadia,CA,91016,,34.1412,-118.0284,Farmer’s Market,,AllWe,14:00,19:00
-Arts District Little Tokyo Farmers Market,200 N Spring St,,Los Angeles,CA,90012,,34.054,-118.2432,Farmer’s Market,,AllWe,14:00,19:00
-Atwater Village Farmers Market,Wells Fargo Parking Lot,3250 Glendale Blvd,Los Angeles,CA,90039,(323) 463-3171,34.1182,-118.2602,Farmer’s Market,,AllSu,10:00,14:00
+St. Agnes Church Farmer's Market",1432 W Adams Blvd,,Los Angeles,CA,90007,213-454-8533,34.0326,-118.2926,Farmer’s Market,,AllWe,2:00,19:00,,,
+Agoura Hills Farmers Market,5835 Kanan Rd,,Agoura Hills,CA,91310,818-591-8161,34.1569,-118.7572,Farmer’s Market,,AllWe,3:00,19:00,,,
+Alhambra Certified Farmers Market,100 S. 2nd Street,,Alhambra,CA,91801,626-570-5081,34.0937,-118.1288,Farmer’s Market,http://www.cityofalhambra.org/page/289/certified_farmers_market/,AllSu,4:00,13:00,,,
+Altadena Farmers Market,600 W. Palm Street,,Altadena,CA,91001,(310) 595-0272,34.2004,-118.1581,Farmer’s Market,http://altadenafarmersmarket.com/,AllWe,5:00,20:00,,,
+Antelope Valley Winery Farmers Market,42041 20th St. West,,Lancaster,CA,93534,,34.647,-118.1662,Farmer’s Market,,AllSat,6:00,12:00,AllWed,10:00,14:00
+Arcadia Street Fair Farmers Market,Wheeler Ave. @ 1st Street,,Arcadia,CA,91016,,34.1412,-118.0284,Farmer’s Market,,AllWe,14:00,19:00,,,
+Arts District Little Tokyo Farmers Market,200 N Spring St,,Los Angeles,CA,90012,,34.054,-118.2432,Farmer’s Market,,AllWe,14:00,19:00,,,
+Atwater Village Farmers Market,Wells Fargo Parking Lot,3250 Glendale Blvd,Los Angeles,CA,90039,(323) 463-3171,34.1182,-118.2602,Farmer’s Market,,AllSu,10:00,14:00,,,
