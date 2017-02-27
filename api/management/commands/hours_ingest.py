@@ -10,9 +10,9 @@ class Command(BaseCommand):
     help = 'in-process command for ingesting csv data with hours.'
 
     def handle(self, *args, **options):
-        for filename in os.listdir('hours_csv_TEST'):
+        for filename in os.listdir('csv_hours_test_data'):
             print('importing CSV file {0}'.format(filename))
-            with open(os.path.join('hours_csv_TEST', filename), 'r') as f:
+            with open(os.path.join('csv_hours_test_data', filename), 'r') as f:
                 reader = csv.reader(f)
                 next(f)
                 for r in reader:
