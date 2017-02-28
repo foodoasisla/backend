@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import csv
-from api.models import Location
+from api.models import Location, Hour
 import os
 
 
