@@ -68,7 +68,7 @@ Exit out of Postgres `\q`
 ##Install Dependencies - Mac
 
 Navigate in the terminal to the first backend folder, with the requirements.txt file. Install: </br>
-`(myvenv)~/backend pip install -r requirements`
+`(myvenv)~/backend pip install -r requirements.txt`
 
 ##Install Dependencies - Windows
 
@@ -78,7 +78,7 @@ Navigate in the command line to the first backend folder, with the requirements.
 ##Configure Django Access to Database - Windows
 Add a new system environment variable with name SECRET_KEY and with a secret key as the value.
 
-Go to settings.py in the backend folder and go to line 84, where it says PASSWORD, uncommented. Add your database password between the quotes.
+Go to settings.py in the backend folder and go to line 95, where it says PASSWORD, uncommented. Add your database password between the quotes.
 
 ##Migrate the Database
 
