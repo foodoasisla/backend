@@ -100,7 +100,7 @@ Go to settings.py in the backend folder and go to line 95, where it says PASSWOR
 
 A sample dataset is located in backend/csv_files/
 
-Run the Ingest Script by type `python manage.py csv_ingest`
+Run the Ingest Script by typing `python manage.py csv_ingest`
 
 ## Start the Server
 
