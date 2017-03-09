@@ -5,6 +5,9 @@
 Open a terminal and go to where you want to keep the project on your local machine.
 Type `git clone https://github.com/foodoasisla/backend.git`
 
+## Python Version - Mac
+Food Oasis LA runs on Python 3. Your Mac ships with Python 2.7. Some good instructions for installing Python 3 can be found [here](http://docs.python-guide.org/en/latest/starting/install3/osx/)
+
 ## Virtualenvwrapper - Mac
 
 From a terminal window `pip install virtualenvwrapper`
@@ -17,11 +20,18 @@ Then add the following to your `.bashrc` file. Replace "Development_Directory" w
 
 After you save the file type `source ~/.bashrc`
 
-run `mkvirtualenv temp` where "temp" is the name of the virtualenv you want to use.
+You need to create a virtualenv with Python 3. 
+
+Type `which python3` in your terminal. 
+You will probably see something like this /Library/Frameworks/Python.framework/Versions/3.5/bin/python3. This is the location of your Python 3 interpreter.
+
+run `mkvirtualenv --python=<location of your Python 3 interpreter> temp` where "temp" is the name of the virtualenv you want to use.
+
+Your virtualenv will be activated after this step.
 
 A list of other virtualenvwrapper commands is located [here](http://virtualenvwrapper.readthedocs.io/en/latest/install.html).
 
-##Postgres - Mac
+## Postgres - Mac
 
 Install Postgress from [here](http://postgresapp.com/)
 
@@ -42,7 +52,7 @@ Create a database
 
 Exit out of Postgres `\q`
 
-##Postgres - Windows
+## Postgres - Windows
 Install Postgress from [here](http://www.enterprisedb.com/products-services-training/pgdownload#windows)
 
 It may prompt you to create a password for superuser 'postgres'.
@@ -65,26 +75,28 @@ Exit out of Postgres `\q`
 (To enter postgres as la_food_oasis_user you must enter the db name in addition to the username: </br>
 `psql -U la_food_oasis_user la_food_oasis`)
 
-##Install Dependencies - Mac
+## Install Dependencies - Mac
+
+Make sure your virtualenv is activated. If it isn't type `workon <name of environment>`
 
 Navigate in the terminal to the first backend folder, with the requirements.txt file. Install: </br>
 `(myvenv)~/backend pip install -r requirements.txt`
 
-##Install Dependencies - Windows
+## Install Dependencies - Windows
 
 Navigate in the command line to the first backend folder, with the requirements.txt file. Install: </br>
 `(myvenv)~/backend pip install -r requirements.txt`
 
-##Configure Django Access to Database - Windows
+## Configure Django Access to Database - Windows
 Add a new system environment variable with name SECRET_KEY and with a secret key as the value.
 
 Go to settings.py in the backend folder and go to line 95, where it says PASSWORD, uncommented. Add your database password between the quotes.
 
-##Migrate the Database
+## Migrate the Database
 
 `(myvenv)~/backend python manage.py migrate`
 
-##Populating data
+## Populating data
 
 ### 1 - Download the CSV
 
