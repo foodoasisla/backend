@@ -23,7 +23,7 @@ After you save the file type `source ~/.bashrc`
 You need to create a virtualenv with Python 3. 
 
 Type `which python3` in your terminal. 
-You will probably see something like this /Library/Frameworks/Python.framework/Versions/3.5/bin/python3. This is the location of your Python 3 interpreter.
+You will probably see something like this `/Library/Frameworks/Python.framework/Versions/3.5/bin/python3`. This is the location of your Python 3 interpreter.
 
 run `mkvirtualenv --python=<location of your Python 3 interpreter> temp` where "temp" is the name of the virtualenv you want to use.
 
@@ -98,24 +98,9 @@ Go to settings.py in the backend folder and go to line 95, where it says PASSWOR
 
 ## Populating data
 
-### 1 - Download the CSV
+A sample dataset is located in backend/csv_files/
 
-A sample CSV file of some of the location data is available [on google drive](https://drive.google.com/file/d/0B-rFXz0_Z5MMOE9ZNWxyaVh1UkE/view).
-
-Download it and move it to a directory called `csv_files` in the commands folder of your project directory: (myvenv)C:/.../backend/api/management/commands
-
-If you're on mac / linux this can be done as follows:
-
-```
-(myvenv)~/backend mkdir csv_files
-(myvenv)~/backend mv ~/Downloads/communitygardens.csv csv_files
-```
-
-### 2 - Run the Ingest Script
-
-Navigate to the commands folder: (myvenv)C:/.../backend/api/management/commands
-
-Run the command: `python C:/.../backend/manage.py csv_ingest`
+Run the Ingest Script by type `python manage.py csv_ingest`
 
 ## Start the Server
 
