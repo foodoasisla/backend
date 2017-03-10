@@ -6,6 +6,13 @@ from api.models import Location
 from api.models import Hour
 from api.serializers import LocationSerializer
 from api.serializers import HourSerializer
+from django.conf.urls import url
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Food Oasis LA API')
+urlpatters = [
+    url(r'^$', schema_view)
+]
 
 
 class LocationList(generics.ListCreateAPIView):
