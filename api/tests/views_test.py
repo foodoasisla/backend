@@ -9,7 +9,7 @@ class TestViews(TestCase):
                  latitude=0,
                  longitude=0).save()
 
-        response = self.client.get('/locations')
+        response = self.client.get('/locations/')
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, len(response.json()))
         self.assertEqual('Test Community Garden',
@@ -21,8 +21,8 @@ class TestViews(TestCase):
                  longitude=12.345678).save()
 
         # query within radius
-        response = self.client.get('/nearby_locations', {'latitude': 12.345678,
-                                                         'longitude': 12.345678})
+        response = self.client.get('/nearby_locations/', {'latitude': 12.345678,
+                                                          'longitude': 12.345678})
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, len(response.json()))
         self.assertEqual('Test Community Garden',
