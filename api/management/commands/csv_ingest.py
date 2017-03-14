@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'Imports CSV file to populate local DB'
 
     def handle(self, *args, **options):
-        for filename in os.listdir('csv_files'):
+        for filename in ['community_gardens.csv']:
             print('importing CSV file {0}'.format(filename))
             with open(os.path.join('csv_files', filename), 'r') as f:
                 reader = csv.reader(f)

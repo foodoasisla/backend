@@ -1,4 +1,9 @@
 # Food Oasis LA
+
+[![CI Status](https://api.travis-ci.org/foodoasisla/backend.svg?branch=master)](https://travis-ci.org/foodoasisla)
+
+
+
 This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.io/).
 
 ## Technology Stack
@@ -9,12 +14,15 @@ This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.i
   - Deployment: Heroku
 
 ## Setup
+
+**Quickstart**
+
+1. Install Postgres and start server.
+2. Clone app `git clone https://github.com/foodoasisla/backend.git`
+3. Make a virtualenv (python 3) `mkvirtualenv --python=$(which python3) foodoasis`
+4. Run the setup script: `make setup`
+
 Detailed instructions are available in CONTRIBUTING.md
-Quickstart
-1) Install Postgres and start server.
-2) Clone app `git clone https://github.com/foodoasisla/backend.git`
-3) Create and activate virtualenv in /backend.
-4) `make setup`
 
 ## Architecture Notes
 The backend will serve a REST API that will initially consist of types and locations of fresh food within Los Angeles.

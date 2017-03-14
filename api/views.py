@@ -21,7 +21,7 @@ class NearbyLocationList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         # Radius in meters
-        radius = self.request.query_params.get('radius', 10000)
+        radius = self.request.query_params.get('radius', 1000)
         lat = self.request.query_params.get('latitude')
         lon = self.request.query_params.get('longitude')
 
