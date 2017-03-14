@@ -4,21 +4,21 @@ from api.models import Location
 
 class TestViews(TestCase):
 
-    def test_fetches_index(self):
-        Location(name='Test Community Garden',
-                 latitude=0,
-                 longitude=0).save()
+    @classmethod
+    def setUpTestData(cls):
+        cls.test_location = Location.objects.create(
+            name='Spring Street Community Garden',
+            latitude=34.0444447, longitude=-118.2965976,
+            category='Community Garden')
 
+    def test_fetches_index(self):
         response = self.client.get('/locations/')
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, len(response.json()))
-        self.assertEqual('Test Community Garden',
+        self.assertEqual('Spring Street Community Garden',
                          response.json()[0]['name'])
 
     def test_fetches_by_location(self):
-        Location(name='Spring Street Community Garden',
-                 latitude=34.0444447,
-                 longitude=-118.2965976,).save()
 
         # query within radius
         response = self.client.get('/nearby_locations/', {'latitude': 34.0444447,
@@ -49,10 +49,6 @@ class TestViews(TestCase):
         self.assertEqual(0, len(response.json()))
 
     def test_fetches_by_category(self):
-        Location(name='Spring Street Community Garden',
-                 category='Community Garden',
-                 latitude=34.0444447,
-                 longitude=-118.2965976).save()
 
         response = self.client.get('/locations/community_gardens/')
         self.assertEqual(200, response.status_code)
