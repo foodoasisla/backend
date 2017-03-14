@@ -47,3 +47,19 @@ class TestViews(TestCase):
                                                           'longitude': -118.2682917})
         self.assertEqual(200, response.status_code)
         self.assertEqual(0, len(response.json()))
+
+    def test_fetches_by_category(self):
+        Location(name='Spring Street Community Garden',
+                 category='Community Garden',
+                 latitude=34.0444447,
+                 longitude=-118.2965976).save()
+
+        response = self.client.get('/locations/community_gardens/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(1, len(response.json()))
+        self.assertEqual('Spring Street Community Garden',
+                         response.json()[0]['name'])
+
+        response = self.client.get('/locations/grocery_stores/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(0, len(response.json()))
