@@ -9,7 +9,7 @@ class TestViews(TestCase):
                  latitude=0,
                  longitude=0).save()
 
-        response = self.client.get('/locations')
+        response = self.client.get('/locations/')
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, len(response.json()))
         self.assertEqual('Test Community Garden',
