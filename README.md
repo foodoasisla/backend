@@ -1,4 +1,9 @@
 # Food Oasis LA
+
+[![CI Status](https://api.travis-ci.org/foodoasisla/backend.svg?branch=master)](https://travis-ci.org/foodoasisla)
+
+
+
 This is the repo for the backend of [Food Oasis LA](https://foodoasisla.github.io/).
 
 ## Technology Stack
