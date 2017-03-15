@@ -19,7 +19,6 @@ class TestViews(TestCase):
                          response.json()[0]['name'])
 
     def test_fetches_by_location_within_radius(self):
-
         response = self.client.get('/nearby_locations/', {'latitude': 34.0444447,
                                                           'longitude': -118.296597})
         self.assertEqual(200, response.status_code)
