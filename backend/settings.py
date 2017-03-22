@@ -36,7 +36,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -154,9 +153,15 @@ STATICFILES_DIRS = (
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = ['--nocapture']
 
+
+# Defining pagination
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 20
+}
+
 # Heroku DB Config - will attemp to connect to Heroku db by checking
 # for presence of DATABASE_URL heroku environment variable.
-
 
 try:
     urlparse.uses_netloc.append("postgres")
