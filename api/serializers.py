@@ -2,6 +2,7 @@ from rest_framework import serializers
 from api.models import Location, Hour
 import time
 
+
 class HourSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -23,6 +24,8 @@ class HourSerializer(serializers.ModelSerializer):
         return instance
 
 # Note. This must come before reference in LocationSerializer
+
+
 class HourListSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -33,11 +36,10 @@ class HourListSerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
     hours = HourListSerializer(many=True, read_only=True)
 
-
     class Meta:
         model = Location
         fields = ('id', 'name', 'address_1', 'address_2', 'city',
-                  'state', 'zipcode', 'phone', 'latitude', 'longitude', 'category', 'hours')
+                  'state', 'zipcode', 'phone', 'latitude', 'longitude', 'category', 'hours', 'website')
 
     def create(self, validated_data):
         return Location.objects.create(**validated_data)
@@ -58,4 +60,3 @@ class LocationSerializer(serializers.ModelSerializer):
         instance.category = validated_data.get('category', instance.category)
         instance.save()
         return instance
-
