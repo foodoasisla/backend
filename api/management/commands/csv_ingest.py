@@ -20,11 +20,33 @@ class Command(BaseCommand):
                     reader = csv.reader(f)
                     next(f)
                     for r in reader:
-                        loc = Location(name=r[0], address_1=r[1], address_2=r[2], city=r[3], state=r[
-                                       4], zipcode=r[5], phone=r[6], latitude=r[7], longitude=r[8], category=r[9], website=r[10], active=True)
+                        loc = Location(name=r[0],
+                                       address_1=r[1],
+                                       address_2=r[2],
+                                       city=r[3],
+                                       state=r[4],
+                                       zipcode=r[5],
+                                       phone=r[6],
+                                       latitude=r[7],
+                                       longitude=r[8],
+                                       category=r[9],
+                                       website=r[10],
+                                       active=True)
                         loc.save()
                         hours = list(filter(None, r[11:]))
+                        # print(hours)
+                        # for i in range(0, len(hours), 3):
+                        #     print(i)
+                        #     hour_components = hours[i:i + 3]
+                        #     day, open_time, close_time, location = hour_components
+                        #     hour = Hour(day=day,
+                        #                 open_time=self._format_time(open_time),
+                        #                 close_time=self._format_time(
+                        #                     close_time),
+                        #                 location=location)
+                        #     hour.save()
                         for i in [hours[i:i + 3] for i in range(0, len(hours), 3)]:
+                            print(i)
                             h = Hour(day=i[0], open_time=self._format_time(i[1]),
                                      close_time=self._format_time(i[2]), location=loc)
                             h.save()
