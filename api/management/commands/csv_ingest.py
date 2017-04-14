@@ -34,22 +34,14 @@ class Command(BaseCommand):
                                        active=True)
                         loc.save()
                         hours = list(filter(None, r[11:]))
-                        # print(hours)
-                        # for i in range(0, len(hours), 3):
-                        #     print(i)
-                        #     hour_components = hours[i:i + 3]
-                        #     day, open_time, close_time, location = hour_components
-                        #     hour = Hour(day=day,
-                        #                 open_time=self._format_time(open_time),
-                        #                 close_time=self._format_time(
-                        #                     close_time),
-                        #                 location=location)
-                        #     hour.save()
-                        for i in [hours[i:i + 3] for i in range(0, len(hours), 3)]:
-                            print(i)
-                            h = Hour(day=i[0], open_time=self._format_time(i[1]),
-                                     close_time=self._format_time(i[2]), location=loc)
-                            h.save()
+                        for i in range(0, len(hours), 3):
+                            day, open_time, close_time = hours[i:i + 3]
+                            hour = Hour(day=day,
+                                        open_time=self._format_time(open_time),
+                                        close_time=self._format_time(
+                                            close_time),
+                                        location=loc)
+                            hour.save()
                         location_count += 1
 
             except:
