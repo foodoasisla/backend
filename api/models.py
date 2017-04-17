@@ -11,8 +11,8 @@ class Location(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=80, blank=False)
-    address_1 = models.CharField(max_length=60, blank=False)
-    address_2 = models.CharField(max_length=40, blank=True, default='')
+    address_1 = models.CharField(max_length=200, blank=False)
+    address_2 = models.CharField(max_length=200, blank=True, default='')
     city = models.CharField(max_length=30, blank=False)
     state = models.CharField(max_length=2, blank=True, default='CA')
     zipcode = models.CharField(max_length=5, blank=False)
