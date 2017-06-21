@@ -52,6 +52,11 @@ class TestViews(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual([], response.json()['results'])
 
+    def test_fetches_by_location_with_no_lat_long(self):
+        response = self.client.get('/nearby_locations/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual([], response.json()['results'])
+
     def test_fetches_by_correct_category(self):
         response = self.client.get('/locations/community_gardens/')
         self.assertEqual(200, response.status_code)

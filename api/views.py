@@ -25,8 +25,10 @@ class NearbyLocationList(generics.ListCreateAPIView):
         lat = self.request.query_params.get('latitude')
         lon = self.request.query_params.get('longitude')
 
+        # set default map center if no params are passed in
         if not (lat and lon):
-            return Response(serializer.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+            lat = 34.046561
+            lon = -118.2499777
 
         queryset = Location.objects.in_distance(int(radius), fields=['latitude', 'longitude'],
                                                 points=[float(lat), float(lon)])
