@@ -6,10 +6,15 @@ class TestViews(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.test_location = Location.objects.create(
+        cls.spring_street = Location.objects.create(
             name='Spring Street Community Garden',
             latitude=34.0444447, longitude=-118.2965976,
             category='Community Garden')
+
+        cls.trader_joes = Location.objects.create(
+            name="Trader Joe's",
+            latitude=34.0086873, longitude=-118.4033927,
+            category='Grocery Store')
 
     def test_fetches_index(self):
         response = self.client.get('/locations/')
@@ -17,7 +22,7 @@ class TestViews(TestCase):
         self.assertEqual(4, len(response.json()))
         self.assertEqual(None, response.json()['previous'])
         self.assertEqual(None, response.json()['next'])
-        self.assertEqual(1, response.json()['count'])
+        self.assertEqual(2, response.json()['count'])
         self.assertEqual('Spring Street Community Garden',
                          response.json()['results'][0]['name'])
 
@@ -57,13 +62,13 @@ class TestViews(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual([], response.json()['results'])
 
-    def test_fetches_by_correct_category(self):
+    def test_fetches_community_gardens(self):
         response = self.client.get('/locations/community_gardens/')
         self.assertEqual(200, response.status_code)
         self.assertEqual('Spring Street Community Garden',
                          response.json()['results'][0]['name'])
 
-    def test_ignores_incorrect_category(self):
+    def test_fetches_grocery_stores(self):
         response = self.client.get('/locations/grocery_stores/')
         self.assertEqual(200, response.status_code)
-        self.assertEqual([], response.json()['results'])
+        self.assertEqual("Trader Joe's", response.json()['results'][0]['name'])
