@@ -29,14 +29,14 @@ class TestViews(TestCase):
                          response.json()['results'][0]['name'])
 
     def test_fetches_by_location_outside_of_radius(self):
-            # Santa Monica State Beach
+        # Santa Monica State Beach
         response = self.client.get('/nearby_locations/', {'latitude': 34.0051628,
                                                           'longitude': -118.5145828})
         self.assertEqual(200, response.status_code)
         self.assertEqual([], response.json()['results'])
 
     def test_fetches_by_location_with_large_radius_override(self):
-            # Baldwin Hills Scenic Overlook
+        # Baldwin Hills Scenic Overlook
         response = self.client.get('/nearby_locations/', {'radius': 15000,
                                                           'latitude': 34.0139142,
                                                           'longitude': -118.3800862})

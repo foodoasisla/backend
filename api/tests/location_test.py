@@ -1,6 +1,7 @@
 from django.test import TestCase
 from api.models import Location
 
+
 class LocationTest(TestCase):
     sample_location_data = {'name': 'Youth Green',
                             'category': 'Community Garden',
