@@ -88,3 +88,7 @@ class TestViews(TestCase):
         self.assertEqual(200, response.status_code)
         self.assertEqual(1, response.json()['count'])
         self.assertEqual("Trader Joe's", response.json()['results'][0]['name'])
+
+    def test_food_pantries(self):
+        response = self.client.get('/locations/food_pantries/')
+        self.assertEqual(200, response.status_code)

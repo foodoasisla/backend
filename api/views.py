@@ -1,7 +1,5 @@
-from rest_framework import status
 from rest_framework import generics
 
-from rest_framework.response import Response
 from api.models import Location
 from api.models import Hour
 from api.serializers import LocationSerializer
@@ -49,6 +47,11 @@ class CommunityGardenLocationList(generics.ListCreateAPIView):
 class GroceryStoreLocationList(generics.ListCreateAPIView):
     serializer_class = LocationSerializer
     queryset = Location.objects.filter(category='Grocery Store')
+
+
+class FoodPantryLocationList(generics.ListCreateAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.filter(category='Food Pantry')
 
 
 class HourList(generics.ListCreateAPIView):
