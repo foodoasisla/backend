@@ -6,11 +6,11 @@ from api.models import Location, Hour
 
 
 class Command(BaseCommand):
-    help = 'Ingests data into the db from csv_files. This command will kill and fill the db.'
+    help = 'Ingests data into the db from csv_files. This command will kill and fill the api_location and api_hours tables.'
 
     def handle(self, *args, **options):
-        # this does a full kill and fill on the database.
-        management.call_command('flush', verbosity=0, interactive=False)
+        Location.objects.all().delete()
+        Hour.objects.all().delete()
         csv_files = ['farmers-market.csv',
                      'community_gardens.csv', 'food-pantry.csv', 'supermarket.csv']
         location_count = 0
