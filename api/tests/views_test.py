@@ -16,13 +16,25 @@ class TestViews(TestCase):
             latitude=34.0086873, longitude=-118.4033927,
             category='Grocery Store')
 
+        cls.bread_of_life = Location.objects.create(
+            name="Bread of Life Community Outreach",
+            latitude=33.858486,
+            longitude=-118.092907,
+            category='Food Pantry')
+
+        cls.stator_bros = Location.objects.create(
+            name="Stater Bros. Markets",
+            latitude=34.098075,
+            longitude=-117.872853,
+            category='Super Market')
+
     def test_index(self):
         response = self.client.get('/locations/')
         self.assertEqual(200, response.status_code)
         self.assertEqual(4, len(response.json()))
         self.assertEqual(None, response.json()['previous'])
         self.assertEqual(None, response.json()['next'])
-        self.assertEqual(2, response.json()['count'])
+        self.assertEqual(4, response.json()['count'])
         self.assertEqual('Spring Street Community Garden',
                          response.json()['results'][0]['name'])
 
@@ -92,3 +104,13 @@ class TestViews(TestCase):
     def test_food_pantries(self):
         response = self.client.get('/locations/food_pantries/')
         self.assertEqual(200, response.status_code)
+        self.assertEqual(1, response.json()['count'])
+        self.assertEqual("Bread of Life Community Outreach",
+                         response.json()['results'][0]['name'])
+
+    def test_food_super_markets(self):
+        response = self.client.get('/locations/super_markets/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(1, response.json()['count'])
+        self.assertEqual("Stater Bros. Markets",
+                         response.json()['results'][0]['name'])

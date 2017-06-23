@@ -54,6 +54,11 @@ class FoodPantryLocationList(generics.ListCreateAPIView):
     queryset = Location.objects.filter(category='Food Pantry')
 
 
+class SuperMarketLocationList(generics.ListCreateAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.filter(category='Super Market')
+
+
 class HourList(generics.ListCreateAPIView):
     queryset = Hour.objects.all()
     serializer_class = HourSerializer
