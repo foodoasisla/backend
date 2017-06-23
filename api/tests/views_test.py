@@ -119,3 +119,9 @@ class TestViews(TestCase):
         response = self.client.get('/analytics/locations/')
         self.assertEqual(200, response.status_code)
         self.assertEqual(4, response.json()['total locations'])
+
+    def test_analytics_summary_category(self):
+        response = self.client.get('/analytics/locations/categories/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual([{'community garden': 1}, {'grocery store': 1}, {
+                         'food pantry': 1}, {'super market': 1}], response.json())

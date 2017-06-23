@@ -77,9 +77,17 @@ class AnalyticsLocationSummary(APIView):
     serializer_class = LocationSerializer
 
     def get(self, request, format=None):
-        queryset = Location.objects.all()
-        field_name = 'total locations'
-        location_count = queryset.count()
-        content = {field_name: location_count}
+        return Response({'total locations': Location.objects.all().count()})
 
+
+class AnalyticsLocationSummaryCategory(APIView):
+    renderer_class = (JSONRenderer,)
+    serializer_class = LocationSerializer
+
+    def get(self, request, format=None):
+        queryset = Location.objects.all()
+        categories = ['Community Garden', 'Grocery Store',
+                      'Food Pantry', 'Super Market']
+        content = [{c.lower(): queryset.filter(category=c).count()}
+                   for c in categories]
         return Response(content)
