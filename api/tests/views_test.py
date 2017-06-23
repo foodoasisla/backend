@@ -114,3 +114,8 @@ class TestViews(TestCase):
         self.assertEqual(1, response.json()['count'])
         self.assertEqual("Stater Bros. Markets",
                          response.json()['results'][0]['name'])
+
+    def test_analytics_summary(self):
+        response = self.client.get('/analytics/locations/')
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(4, response.json()['total locations'])
