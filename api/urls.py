@@ -16,6 +16,9 @@ urlpatterns = [
     url(r'locations/grocery_stores/$', views.GroceryStoreLocationList.as_view()),
     url(r'locations/food_pantries/$', views.FoodPantryLocationList.as_view()),
     url(r'locations/super_markets/$', views.SuperMarketLocationList.as_view()),
+    url(r'analytics/locations/$', views.AnalyticsLocationSummary.as_view()),
+    url(r'analytics/locations/categories/$',
+        views.AnalyticsLocationSummaryCategory.as_view()),
     url(r'^$', schema_view)
 ]
 

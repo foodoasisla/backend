@@ -4,6 +4,9 @@ from api.models import Location
 from api.models import Hour
 from api.serializers import LocationSerializer
 from api.serializers import HourSerializer
+from rest_framework.views import APIView
+from rest_framework.renderers import JSONRenderer
+from rest_framework.response import Response
 
 
 class LocationList(generics.ListCreateAPIView):
@@ -67,3 +70,24 @@ class HourList(generics.ListCreateAPIView):
 class HourDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Hour.objects.all()
     serializer_class = HourSerializer
+
+
+class AnalyticsLocationSummary(APIView):
+    renderer_class = (JSONRenderer,)
+    serializer_class = LocationSerializer
+
+    def get(self, request, format=None):
+        return Response({'total locations': Location.objects.all().count()})
+
+
+class AnalyticsLocationSummaryCategory(APIView):
+    renderer_class = (JSONRenderer,)
+    serializer_class = LocationSerializer
+
+    def get(self, request, format=None):
+        queryset = Location.objects.all()
+        categories = ['Community Garden', 'Grocery Store',
+                      'Food Pantry', 'Super Market']
+        content = [{c.lower(): queryset.filter(category=c).count()}
+                   for c in categories]
+        return Response(content)
